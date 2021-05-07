@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <body>
+ <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" id="Home" href="/home">Home</a>
+            <a class="nav-item nav-link" id="Search" href="/search">search</a>
+        </div>
+ </div>
+ <h2>Hello WhiteHat</h2>
+ <h4>Please, enter values:</h4>
+ <form action="/home" method = "POST">
+     <p>Product name:  <input type = "text" name = "Product" /> - Maximum 20 characters</p>
+     <p>Price:  <input type = "text" name = "Price" /> - Only number accepted (decimal). Maximum 10 characters</p>
+     <p><input type = "submit" value = "Submit" /></p>
+
+</form>
+ <div class="flashes">
+     {% for message in get_flashed_messages() %}
+     {{ message }}
+     {% endfor %}
+</div>
+</body>
+</html>

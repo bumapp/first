@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <body>
+ <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" id="Home" href="/home">Home</a>
+            <a class="nav-item nav-link" id="Search" href="/search">search</a>
+        </div>
+ </div>
+ <h3>Enter the name of your product:</h3>
+ <form action="/search" method = "POST">
+     <p>Product <input type = "text" name = "Product" /> - Maximum 20 characters</p>
+     <p><input type = "submit" value = "Search" /></p>
+</form>
+ <div class="flashes">
+     {% for message in get_flashed_messages() %}
+     {{ message }}
+     {% endfor %}
+</div>
+</body>
+</html>
