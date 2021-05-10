@@ -19,26 +19,25 @@ class Products:
 
 def insert_product(name):
     """The function inserts product to database"""
-        try:
-            with conn:
-                cur.execute("INSERT INTO products VALUES (:product, :price)",
+    try:
+        with conn:
+            cur.execute("INSERT INTO products VALUES (:product, :price)",
                         {'product': name.product, 'price': name.price})
-        except:
-            flash("The action failed, try again! ", category="error")
-        else:
-            flash("The action is fulfilled", category="success")
+    except:
+        flash("The action failed, try again! ", category="error")
+    else:
+        flash("The action is fulfilled", category="success")    
 
 
 def get_product(name):
     """The function searches product in database and send the result to html"""
-    
-        try:
-            with conn:
-                cur.execute('SELECT * FROM products WHERE product=:product', {'product': name})
-        except:
-            flash("The action failed, try again! ", category="error")
-        else:
-            flash("The result is: " + str(cur.fetchone()))
+    try:
+        with conn:
+            cur.execute('SELECT * FROM products WHERE product=:product', {'product': name})
+    except:
+        flash("The action failed, try again! ", category="error")
+    else:
+        flash("The result is: " + str(cur.fetchone()))
 
 
 def chek_input(some_string, some_number='0'):
