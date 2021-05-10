@@ -19,9 +19,9 @@ class Products:
 
 def insert_product(name):
     """The function inserts product to database"""
-    with conn:
         try:
-            cur.execute("INSERT INTO products VALUES (:product, :price)",
+            with conn:
+                cur.execute("INSERT INTO products VALUES (:product, :price)",
                         {'product': name.product, 'price': name.price})
         except:
             flash("The action failed, try again! ", category="error")
@@ -31,9 +31,10 @@ def insert_product(name):
 
 def get_product(name):
     """The function searches product in database and send the result to html"""
-    with conn:
+    
         try:
-            cur.execute('SELECT * FROM products WHERE product=:product', {'product': name})
+            with conn:
+                cur.execute('SELECT * FROM products WHERE product=:product', {'product': name})
         except:
             flash("The action failed, try again! ", category="error")
         else:
