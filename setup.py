@@ -8,7 +8,6 @@ cur = conn.cursor()
 # cur.execute("""CREATE TABLE products (product text, price float)""")
 # conn.close()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'my secret key'
 
 
 class Products:
@@ -82,4 +81,6 @@ def search():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    app.config['SECRET_KEY'] = 'my_secret_key'
+    app.run()
+    
